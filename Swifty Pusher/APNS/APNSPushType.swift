@@ -13,6 +13,7 @@ enum APNSPushType: String, CaseIterable {
     case background
     case location
     case voip
+    case liveactivity
     
     var title: String {
         rawValue.capitalized
@@ -47,6 +48,21 @@ enum APNSPushType: String, CaseIterable {
             return "Location"
         case .voip:
             return "VOIP identifier"
+        case .liveactivity:
+            return """
+{
+   "aps": {
+       "alert": {
+         "body": "body",
+         "sound": "default",
+         "title": "title"
+       },
+       "attributes-type": "",
+       "attributes": {},
+       "content-state": {
+        }
+}
+"""
         }
     }
     
@@ -58,6 +74,8 @@ enum APNSPushType: String, CaseIterable {
             return bundleID + ".location-query"
         case .voip:
             return bundleID + ".voip"
+        case .liveactivity:
+            return bundleID + ".push-type.liveactivity"
         }
     }
 }
