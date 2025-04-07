@@ -93,7 +93,7 @@ struct ContentView: View {
             }
             .frame(maxHeight: 100, alignment: .topLeading)
         }
-        .frame(width: 400, height: 600, alignment: .top)
+//        .frame(width: 400, height: 600, alignment: .top)
         .padding()
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification), perform: { _ in
             NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = true
